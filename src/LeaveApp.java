@@ -6,5 +6,11 @@ public class LeaveApp {
         e1.displayDetails();
         e2.displayDetails();
         e3.displayDetails();
+
+        e1.applyLeave(5);
+        e2.applyLeave(20);
+        e3.applyLeave(2);
+        e1.cancelLeave(5);
+        System.out.println("Anita balance: " + e1.checkLeaveBalance());
     }
 }

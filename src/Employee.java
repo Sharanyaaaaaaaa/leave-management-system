@@ -16,6 +16,29 @@ public class Employee {
     public String getDept() { return dept; }
     public int getBal() { return bal; }
 
+    public boolean applyLeave(int days) {
+        if (days <= 0) {
+            System.out.println("Invalid days");
+            return false;
+        }
+        if (days > bal) {
+            System.out.println("Not enough leave balance");
+            return false;
+        }
+        bal = bal - days;
+        System.out.println(empName + " applied for " + days + " days");
+        return true;
+    }
+
+    public void cancelLeave(int days) {
+        bal = bal + days;
+        System.out.println(empName + " cancelled " + days + " days");
+    }
+
+    public int checkLeaveBalance() {
+        return bal;
+    }
+
     public void displayDetails() {
         System.out.println("ID: " + empId + ", Name: " + empName + ", Dept: " + dept + ", Leave balance: " + bal);
     }
