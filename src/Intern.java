@@ -18,4 +18,15 @@ public class Intern extends Employee {
         }
         return super.applyLeave(days);
     }
+
+    @Override
+    public String getEmployeeType() {
+        return "Intern";
+    }
+
+    @Override
+    public void displayDetails() {
+        super.displayDetails();
+        System.out.println("Internship duration (months): " + durationMonths);
+    }
 }

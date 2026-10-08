@@ -1,4 +1,4 @@
-public class Employee {
+public abstract class Employee {
     private int empId;
     private String empName;
     private String dept;
@@ -15,6 +15,14 @@ public class Employee {
     public String getEmpName() { return empName; }
     public String getDept() { return dept; }
     public int getBal() { return bal; }
+
+    public abstract String getEmployeeType();
+
+    // overloaded version: same name, different parameters
+    public boolean applyLeave(int days, String reason) {
+        System.out.println("Reason: " + reason);
+        return applyLeave(days);
+    }
 
     public boolean applyLeave(int days) {
         if (days <= 0) {
@@ -40,6 +48,6 @@ public class Employee {
     }
 
     public void displayDetails() {
-        System.out.println("ID: " + empId + ", Name: " + empName + ", Dept: " + dept + ", Leave balance: " + bal);
+        System.out.println("ID: " + empId + ", Name: " + empName + ", Dept: " + dept + ", Type: " + getEmployeeType() + ", Leave balance: " + bal);
     }
 }

@@ -18,4 +18,15 @@ public class PartTimeEmployee extends Employee {
         }
         return super.applyLeave(days);
     }
+
+    @Override
+    public String getEmployeeType() {
+        return "Part-time";
+    }
+
+    @Override
+    public void displayDetails() {
+        super.displayDetails();
+        System.out.println("Hours per week: " + hoursPerWeek);
+    }
 }
