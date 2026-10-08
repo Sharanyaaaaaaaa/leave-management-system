@@ -43,6 +43,14 @@ public abstract class Employee {
         System.out.println(empName + " cancelled " + days + " days");
     }
 
+    protected void addBonusLeave(int days) {
+        bal = bal + days;
+    }
+
+    protected void deductLeave(int days) {
+        bal = bal - days;
+    }
+
     public int checkLeaveBalance() {
         return bal;
     }

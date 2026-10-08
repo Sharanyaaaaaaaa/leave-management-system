@@ -7,6 +7,7 @@ public class LeaveApp {
         list.add(new FullTimeEmployee(101, "Anita Sharma", "IT"));
         list.add(new PartTimeEmployee(102, "Rahul Verma", "Marketing", 20));
         list.add(new Intern(103, "Meera Nair", "HR", 3));
+        list.add(new Manager(104, "Karan Rao", "Operations", 8));
 
         // polymorphism: same call, different behaviour for each type
         for (Employee e : list) {
