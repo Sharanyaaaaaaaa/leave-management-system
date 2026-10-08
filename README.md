@@ -77,3 +77,7 @@ Method overloading and Access modifiers are all used. See
 6. Added Manager
 7. Refactored code
 8. Final version
+
+## GitHub Repository
+
+[Leave Management System - GitHub Repository](https://github.com/Sharanyaaaaaaaa/leave-management-system.git)
