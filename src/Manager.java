@@ -1,29 +1,21 @@
+/**
+ * Manager: a full-time employee with extra leave benefits.
+ * 6 bonus days (30 in total) and up to 20 days in one request.
+ * Everything else is reused from FullTimeEmployee and Employee.
+ */
 public class Manager extends FullTimeEmployee {
-    private int teamSize;
+    private static final int BONUS_LEAVE = 6;
+    private static final int MAX_DAYS_PER_REQUEST = 20;
+    private static final int FULL_TIME_ENTITLEMENT = 24;
 
-    public Manager(int empId, String empName, String dept, int teamSize) {
-        super(empId, empName, dept);
+    private final int teamSize;
+
+    public Manager(int employeeId, String employeeName, String department, int teamSize) {
+        super(employeeId, employeeName, department, FULL_TIME_ENTITLEMENT + BONUS_LEAVE);
+        if (teamSize < 0) {
+            throw new IllegalArgumentException("Team size cannot be negative.");
+        }
         this.teamSize = teamSize;
-        addBonusLeave(6);          // managers get 6 extra days
-    }
-
-    @Override
-    public boolean applyLeave(int days) {
-        if (days <= 0) {
-            System.out.println("Invalid days");
-            return false;
-        }
-        if (days > 20) {
-            System.out.println("Managers can take at most 20 days at once");
-            return false;
-        }
-        if (days > checkLeaveBalance()) {
-            System.out.println("Not enough leave balance");
-            return false;
-        }
-        deductLeave(days);
-        System.out.println(getEmpName() + " applied for " + days + " days");
-        return true;
     }
 
     @Override
@@ -32,8 +24,13 @@ public class Manager extends FullTimeEmployee {
     }
 
     @Override
+    protected int getMaxDaysPerRequest() {
+        return MAX_DAYS_PER_REQUEST;
+    }
+
+    @Override
     public void displayDetails() {
         super.displayDetails();
-        System.out.println("Team size: " + teamSize);
+        System.out.println("Team size: " + teamSize + " | Extra leave benefit: +" + BONUS_LEAVE + " days");
     }
 }

@@ -1,0 +1,52 @@
+
+=== 1. Employee details (polymorphism) ===
+ID: 101 | Name: Anita Sharma | Dept: IT
+Type: Full-time | Annual leave: 24 | Balance: 24 | Max per request: 15
+
+ID: 102 | Name: Rahul Verma | Dept: Marketing
+Type: Part-time | Annual leave: 12 | Balance: 12 | Max per request: 5
+Hours per week: 20
+
+ID: 103 | Name: Meera Nair | Dept: HR
+Type: Intern | Annual leave: 6 | Balance: 6 | Max per request: 2
+Internship duration (months): 3
+
+ID: 104 | Name: Karan Rao | Dept: Operations
+Type: Manager | Annual leave: 30 | Balance: 30 | Max per request: 20
+Team size: 8 | Extra leave benefit: +6 days
+
+
+=== 2. Applying for leave ===
+OK: Anita Sharma - Request #1 | 5 day(s) | Family function | APPLIED (balance now 19)
+Rejected: Anita Sharma - Full-time employees can take at most 15 days in one request.
+OK: Rahul Verma - Request #1 | 5 day(s) | Exams | APPLIED (balance now 7)
+OK: Rahul Verma - Request #2 | 3 day(s) | Medical check-up | APPLIED (balance now 4)
+Rejected: Rahul Verma - Not enough leave balance. Requested 5 day(s), available 4.
+Rejected: Meera Nair - Intern employees can take at most 2 days in one request.
+Rejected: Meera Nair - Number of days must be greater than zero.
+OK: Meera Nair - Request #1 | 2 day(s) | College event | APPLIED (balance now 4)
+OK: Karan Rao - Request #1 | 18 day(s) | Annual vacation | APPLIED (balance now 12)
+
+=== 3. Overloaded method (no reason given) ===
+OK: Anita Sharma - Request #2 | 2 day(s) | Not specified | APPLIED
+
+=== 4. Cancelling leave ===
+OK: Anita Sharma cancelled request #1 (balance now 22)
+Rejected: Anita Sharma - Leave request #1 is already cancelled.
+Rejected: Anita Sharma - Leave request #99 not found.
+
+=== 5. Leave balances ===
+Anita Sharma (Full-time): 22 day(s) left
+Rahul Verma (Part-time): 4 day(s) left
+Meera Nair (Intern): 4 day(s) left
+Karan Rao (Manager): 12 day(s) left
+
+=== 6. Leave history ===
+Leave history for Anita Sharma:
+  Request #1 | 5 day(s) | Family function | CANCELLED
+  Request #2 | 2 day(s) | Not specified | APPLIED
+Leave history for Karan Rao:
+  Request #1 | 18 day(s) | Annual vacation | APPLIED
+
+=== 7. Invalid employee data ===
+Rejected: Employee name cannot be empty.

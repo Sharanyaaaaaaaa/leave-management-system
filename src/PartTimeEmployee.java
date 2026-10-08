@@ -1,27 +1,26 @@
+/** Part-time employee: 12 days a year, up to 5 days in one request. */
 public class PartTimeEmployee extends Employee {
-    private int hoursPerWeek;
+    private static final int ANNUAL_ENTITLEMENT = 12;
+    private static final int MAX_DAYS_PER_REQUEST = 5;
 
-    public PartTimeEmployee(int empId, String empName, String dept, int hoursPerWeek) {
-        super(empId, empName, dept, 12);
+    private final int hoursPerWeek;
+
+    public PartTimeEmployee(int employeeId, String employeeName, String department, int hoursPerWeek) {
+        super(employeeId, employeeName, department, ANNUAL_ENTITLEMENT);
+        if (hoursPerWeek <= 0) {
+            throw new IllegalArgumentException("Hours per week must be greater than zero.");
+        }
         this.hoursPerWeek = hoursPerWeek;
-    }
-
-    @Override
-    public boolean applyLeave(int days) {
-        if (days <= 0) {
-            System.out.println("Invalid days");
-            return false;
-        }
-        if (days > 5) {
-            System.out.println("Part-time employees can take at most 5 days at once");
-            return false;
-        }
-        return super.applyLeave(days);
     }
 
     @Override
     public String getEmployeeType() {
         return "Part-time";
+    }
+
+    @Override
+    protected int getMaxDaysPerRequest() {
+        return MAX_DAYS_PER_REQUEST;
     }
 
     @Override
